@@ -1,0 +1,31 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+.DS_Store
+
+# .env ファイル
+.env
+
+# sequelize データベースデータ
+/sequelize-data
+
+# logs
+/logs/
+
+# PostgreSQL関連のデータベース
+*.db
+*.sql
+*.sqlite
+
+# その他のログファイル
+*.log
+
+# server ディレクトリ用の設定
+/server/node_modules/
+
+# client ディレクトリ用の設定
+/client/.next/
+/client/out/
+/client/node_modules/
+/client/.vercel/
