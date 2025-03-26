@@ -1,0 +1,96 @@
+/* 全体的なコンテナのスタイル */
+.add-manufacturer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+/* 見出し */
+.add-manufacturer-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* フォームのスタイル */
+.add-manufacturer-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* フォーム要素の間隔を調整 */
+    width: 100%;
+}
+
+/* ラベルのスタイル */
+.add-manufacturer-container label {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 8px; /* ラベルと入力フィールドの間隔を少し広げる */
+}
+
+/* 入力フィールドのスタイル */
+.add-manufacturer-container input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    width: 100%;  /* 入力フィールドの幅を100%に */
+}
+
+.add-manufacturer-container input:focus {
+    border-color: #007BFF;  /* 青系 */
+    outline: none;
+}
+
+/* エラーメッセージのスタイル */
+.add-manufacturer-container .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: -10px;
+}
+
+/* 送信ボタンのスタイル */
+.add-manufacturer-container button[type="submit"] {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;  /* 青系 */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* ボタンの幅を100%に */
+}
+
+.add-manufacturer-container button[type="submit"]:hover {
+    background-color: #0056b3; /* ダークブルー */
+}
+
+/* 戻るボタンのスタイル */
+.back-button-container {
+    margin-top: 20px;
+    width: 100%; /* 戻るボタンをフォーム全体の幅に合わせる */
+}
+
+.back-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #cce5ff;  /* ライトブルー */
+    border: none;
+    border-radius: 6px;
+    width: 100%; /* 戻るボタンをフォーム全体の幅に合わせる */
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #99c2ff; /* 少し濃いライトブルー */
+}
