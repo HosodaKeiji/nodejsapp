@@ -1,4 +1,4 @@
-# Node.js
+echo "# Node.js
 node_modules/
 npm-debug.log
 yarn-error.log
@@ -29,3 +29,4 @@ yarn-error.log
 /client/out/
 /client/node_modules/
 /client/.vercel/
+" > .gitignore
