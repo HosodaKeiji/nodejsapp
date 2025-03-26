@@ -50,7 +50,7 @@ export default function AddManufacturer() {
         }
     };
 
-     // トップページに戻るボタンのクリック時にページをリダイレクト
+    // トップページに戻るボタンのクリック時にページをリダイレクト
     const handleBack = () => {
         window.location.href = "/";  // トップページに戻る
     };

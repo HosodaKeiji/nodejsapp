@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import "./AddCar.css"; // CSSファイルを読み込む
 
 export default function AddCar() {
     const [manufacturers, setManufacturers] = useState<{ id: number; name: string }[]>([]);
@@ -9,15 +10,13 @@ export default function AddCar() {
     const [price, setPrice] = useState("");
     const [url, setUrl] = useState("");
 
-    // APIからメーカー一覧を取得
     useEffect(() => {
-        fetch("http://localhost:3001/api/manufacturers") // ExpressのAPIエンドポイント
-        .then((response) => response.json())
-        .then((data) => setManufacturers(data))
-        .catch((error) => console.error("メーカー取得エラー:", error));
+        fetch("http://localhost:3001/api/manufacturers")
+            .then((response) => response.json())
+            .then((data) => setManufacturers(data))
+            .catch((error) => console.error("メーカー取得エラー:", error));
     }, []);
 
-    // 車種を追加する処理
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!selectedManufacturer) {
@@ -34,9 +33,7 @@ export default function AddCar() {
 
         const response = await fetch("http://localhost:3001/api/cars", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newCar),
         });
 
@@ -50,44 +47,51 @@ export default function AddCar() {
             alert("エラーが発生しました");
         }
     };
+
+    // トップページに戻るボタンのクリック時にページをリダイレクト
+    const handleBack = () => {
+        window.location.href = "/";  // トップページに戻る
+    };
+
     return (
-        <div style={{ textAlign: "center", marginTop: "50px" }}>
-            <h2>🚗 車種を追加</h2>
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <label>
+        <div className="container">
+            <h2 className="title">🚗 車種を追加</h2>
+            <form onSubmit={handleSubmit} className="form">
+                <label className="label">
                     メーカー:
                     <select
                         value={selectedManufacturer || ""}
                         onChange={(e) => setSelectedManufacturer(Number(e.target.value))}
                         required
-                        style={{ marginLeft: "10px", padding: "5px" }}
+                        className="select"
                     >
                         <option value="">選択してください</option>
                         {manufacturers.map((manufacturer) => (
-                        <option key={manufacturer.id} value={manufacturer.id}>
-                            {manufacturer.name}
-                        </option>
+                            <option key={manufacturer.id} value={manufacturer.id}>
+                                {manufacturer.name}
+                            </option>
                         ))}
                     </select>
                 </label>
-                <br />
-                <label>
+                <label className="label">
                     車種名:
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} required style={{ marginLeft: "10px", padding: "5px" }} />
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} required className="input" />
                 </label>
-                <br />
-                <label>
+                <label className="label">
                     価格:
-                    <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} required style={{ marginLeft: "10px", padding: "5px" }} />
+                    <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} required className="input" />
                 </label>
-                <br />
-                <label>
-                    画像URL:
-                    <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} required style={{ marginLeft: "10px", padding: "5px" }} />
+                <label className="label">
+                    URL:
+                    <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} required className="input" />
                 </label>
-                <br />
-                <button type="submit" style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}>追加</button>
+                <button type="submit" className="button">追加</button>
             </form>
+            <div className="back-button-container">
+                <button onClick={handleBack} className="back-button">
+                    トップページに戻る
+                </button>
+            </div>
         </div>
     );
-}    
+}
