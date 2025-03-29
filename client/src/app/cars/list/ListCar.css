@@ -94,3 +94,22 @@
 .back-button:hover {
     background-color: #99c2ff; /* 少し濃いライトブルー */
 }
+
+/* 検索バーのスタイル */
+.search-container {
+    text-align: right; /* 右寄せ */
+    margin-bottom: 15px;
+}
+
+.search-input {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 250px; /* 幅を指定 */
+    box-sizing: border-box;
+}
+
+.search-input::placeholder {
+    color: #999;
+}

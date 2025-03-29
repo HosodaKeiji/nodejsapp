@@ -30,14 +30,12 @@ export default function AddManufacturer() {
             }
 
             // 成功した場合の処理
-            const data = await response.json();
-            console.log("メーカーが追加されました:", data);
             setName("");  // フォームの入力をクリア
             setCountry("");
             setError(null);  // エラーメッセージのリセット
             // メーカー追加成功時にアラートを表示してトップページにリダイレクト
             alert("メーカーが追加されました");
-            window.location.href = "/";
+            window.location.href = "/cars/add";
 
         } catch (err: unknown) {
             // 型ガードを使ってエラーがErrorオブジェクトか確認

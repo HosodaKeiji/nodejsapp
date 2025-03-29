@@ -38,11 +38,13 @@ export default function AddCar() {
         });
 
         if (response.ok) {
-            alert("車種が追加されました");
             setName("");
             setPrice("");
             setUrl("");
             setSelectedManufacturer(null);
+            // 車種追加成功時にアラートを表示してトップページにリダイレクト
+            alert("車種が追加されました");
+            window.location.href = "/cars/list";
         } else {
             alert("エラーが発生しました");
         }

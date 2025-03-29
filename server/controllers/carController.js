@@ -7,7 +7,7 @@ exports.getAllCars = async (req, res) => {
             include: {
                 model: Manufacturer,
                 as: "manufacturer", // メーカーを取得する際に使うエイリアス名
-                attributes: ['name'], // メーカー名のみ取得
+                attributes: ['name', 'country'],
             },
         });
 
@@ -35,7 +35,6 @@ exports.addCar = async (req, res) => {
         url,
         manufacturer_id
         });
-        console.log("新しい車が追加されました:", newCar); // デバッグ用ログ
         res.status(201).json(newCar);  // 成功時に新しい車種を返す
     } catch (error) {
         console.error("車の追加中にエラー:", error); // エラー詳細をログに出す

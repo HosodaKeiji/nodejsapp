@@ -1,45 +1,28 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import "./TopPage.css";
 
 export default function Home() {
   const router = useRouter();
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h2>トップページ</h2>
-      <p>このアプリでは、さまざまな車の情報を比較できます。</p>
-      <div style={{ marginTop: "20px" }}>
+    <div className="container">
+      <h2 className="title">車比較Webアプリ</h2>
+      <p className="description">このアプリでは、さまざまな車の情報を比較できます。</p>
+      <div className="button-container">
         <button
           onClick={() => router.push("/manufacturers/add")}
-          style={{
-            padding: "10px 20px",
-            margin: "10px",
-            fontSize: "16px",
-            cursor: "pointer",
-          }}
         >
           🏭 メーカーの追加
         </button>
         <button
           onClick={() => router.push("/cars/add")}
-          style={{
-            padding: "10px 20px",
-            margin: "10px",
-            fontSize: "16px",
-            cursor: "pointer",
-          }}
         >
           🚗 車種の追加
         </button>
         <button
           onClick={() => router.push("/cars/list")}
-          style={{
-            padding: "10px 20px",
-            margin: "10px",
-            fontSize: "16px",
-            cursor: "pointer",
-          }}
         >
           📋 車の一覧を見る
         </button>
