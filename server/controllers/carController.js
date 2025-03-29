@@ -4,10 +4,16 @@ const { Car, Manufacturer } = require('../models');
 exports.getAllCars = async (req, res) => {
     try {
         const cars = await Car.findAll({
-        include: Manufacturer,  // 車種に関連するメーカーも取得
+            include: {
+                model: Manufacturer,
+                as: "manufacturer", // メーカーを取得する際に使うエイリアス名
+                attributes: ['name'], // メーカー名のみ取得
+            },
         });
+
         res.json(cars);
     } catch (error) {
+        console.error("データ取得エラー:", error);
         res.status(500).send(error.message);
     }
 };
@@ -16,7 +22,6 @@ exports.getAllCars = async (req, res) => {
 exports.addCar = async (req, res) => {
     try {
         const { name, price, url, manufacturer_id } = req.body;
-        console.log("受信データ:", { name, price, url, manufacturer_id }); // デバッグ用ログ
         // メーカーが存在するかチェック
         const manufacturer = await Manufacturer.findByPk(manufacturer_id);
         if (!manufacturer) {

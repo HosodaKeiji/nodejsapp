@@ -1,0 +1,96 @@
+/* 全体のコンテナ */
+.container {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f0f8ff; /* 淡い青 */
+    border-radius: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* タイトル */
+.title {
+    color: #0073e6;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 車の一覧テーブル */
+.car-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ヘッダー */
+.car-table th {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+
+/* データ行 */
+.car-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 偶数行の背景色変更 */
+.car-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* リンクのスタイル */
+.car-link {
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.car-link:hover {
+    text-decoration: underline;
+}
+
+/* 車のメーカー名 */
+.car-manufacturer {
+    font-style: italic;
+    color: #555;
+}
+
+/* 車種名 */
+.car-name {
+    font-weight: bold;
+}
+
+/* 価格 */
+.car-price {
+    color: #e60000;
+    font-weight: bold;
+}
+
+/* 戻るボタンのスタイル */
+.back-button-container {
+    margin-top: 20px;
+    text-align: center; /* ボタンを中央寄せ */
+}
+
+.back-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #cce5ff;  /* ライトブルー */
+    border: none;
+    border-radius: 6px;
+    width: 30%; /* 戻るボタンをフォーム全体の幅に合わせる */
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #99c2ff; /* 少し濃いライトブルー */
+}
